@@ -1,0 +1,16 @@
+{{template "base" .}}
+
+{{define "title"}}About Page{{end}}
+
+{{define "content"}}
+
+About Page
+
+this came from the templates: {{index .StringMap "test"}}
+{{if ne (index .StringMap "remote_ip") ""}}
+Your Ip : {{index .StringMap "remote_ip"}}
+{{else}}
+No ip in session
+{{end}}
+
+{{end}}

@@ -34,14 +34,14 @@ func (m *Repository) Home(rw http.ResponseWriter, r *http.Request) {
 	fmt.Println("hello request initiated")
 	remoteIP := r.RemoteAddr
 	m.App.Session.Put(r.Context(), "remote_ip", remoteIP)
-	render.RenderTemplate(rw, "home.html", &models.TemplateData{})
+	render.RenderTemplate(rw, "home.page.tmpl", &models.TemplateData{})
 }
 
 // About is the about page handler
 func (m *Repository) About(rw http.ResponseWriter, r *http.Request) {
 	fmt.Println("about request initiated")
 	remoteIP := m.App.Session.GetString(r.Context(), "remote_ip")
-	render.RenderTemplate(rw, "about.html", &models.TemplateData{
+	render.RenderTemplate(rw, "about.page.tmpl", &models.TemplateData{
 		StringMap: map[string]string{
 			"test":      "Hello,again!!!",
 			"remote_ip": remoteIP,

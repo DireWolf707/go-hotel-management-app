@@ -59,7 +59,7 @@ func CreateTemplateCache() (map[string]*template.Template, error) {
 	// create empty cache
 	myCache := map[string]*template.Template{}
 	// getting list of all html (not layouts)
-	pages, err := filepath.Glob("./templates/*.html")
+	pages, err := filepath.Glob("./templates/*.tmpl")
 	if err != nil {
 		return myCache, err
 	}
